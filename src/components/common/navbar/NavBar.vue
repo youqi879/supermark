@@ -1,5 +1,6 @@
 <template>
 	<div class="nav-bar">
+		<!-- 顶部导航栏，分为左中右三块区域，放置三个插槽，可以根据场景放置不同的东西 -->
 		<div class="left"><slot name="left"></slot></div>
 		<div class="center"><slot name="center"></slot></div>
 		<div class="right"><slot name="right"></slot></div>

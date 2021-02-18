@@ -1,7 +1,8 @@
 <!-- 首页导航条--流行 新款 精选 -->
 <template>
 	<div class="tab-control">
-		<div v-for="(item,index) in titles"
+		<!-- 依次取出父级传过来的数据  设置动态属性-->
+		<div v-for="(item,index) in titles"   
 		 class="tab-control-item"
 		 :class="{active:index===currentIndex}"
 		 @click="itemClick(index)">
@@ -28,8 +29,8 @@
 		},
 		methods:{
 			itemClick(index){
-				this.currentIndex=index;
-				this.$emit('tabClick',index)
+				this.currentIndex=index;//点击之后获取动态属性
+				this.$emit('tabClick',index) //触发外部父级事件
 			}
 		}
 	}

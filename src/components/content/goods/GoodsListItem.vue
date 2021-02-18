@@ -1,7 +1,8 @@
 <!-- 下面的商品区，通过选择导航条上的“流行”“新款”“精选”，对应的显示下面的商品 -->
 <template>
-	<div class="goods-item">
-		<img :src="goodsItem.show.img"  alt=""/>
+	<div class="goods-item"  @click="itemClick">
+		<!-- <img :src="showImage"  alt="" @load="imageLoad"/> -->
+		<img v-lazy="showImage"  alt="" @load="imageLoad"/>
 		<div  class="goods-info">
 			<p>{{goodsItem.title}}</p>
 			<span class="price">{{goodsItem.price}}</span>
@@ -20,11 +21,27 @@
 					return {}
 				}
 			}
+		},
+		computed:{
+			showImage(){
+				 return this.goodsItem.image || this.goodsItem.show.img
+			}
+		},
+		methods:{
+			imageLoad(){
+				this.$bus.$emit('itemImageLoad')
+			},
+			itemClick(){
+				// console.log('=====')
+				this.$router.push('/detail/'+this.goodsItem.iid)
+			}
+			
 		}
 	}
+
 </script>
 
-<style>
+<style scoped>
 	.goods-item {
 	   padding-bottom: 40px;
 	   position: relative;

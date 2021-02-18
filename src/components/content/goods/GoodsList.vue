@@ -8,6 +8,7 @@
 	</div>
 </template>
 
+
 <script>
 	import GoodsListItem from './GoodsListItem.vue'
 	export default{
@@ -26,7 +27,7 @@
 	}
 </script>
 
-<style>
+<style scoped>
 	.goods{
 		display: flex;
 		flex-wrap: wrap;/* //弹性盒元素在必要的时候拆行： */
